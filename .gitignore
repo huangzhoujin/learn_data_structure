@@ -15,4 +15,5 @@ cmake-build*
 *.pdb
 bin
 obj
+.idea/
 
