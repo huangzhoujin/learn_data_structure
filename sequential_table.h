@@ -21,20 +21,22 @@ public:
     }
 
     explicit SequentialTable(const int initCapacity) {
-        inititalize(capacity);
+        inititalize(initCapacity);
     }
 
-    void inititalize(int capacity) {
-        if (capacity <= 0) {
+    void inititalize(int initCapacity) {
+        if (initCapacity <= 0) {
             throw std::invalid_argument("the capacity is not valid");
         }
-        this->elements = new T[capacity];
-        this->capacity = capacity;
+        this->elements = new T[initCapacity];
+        this->capacity = initCapacity;
         this->size = 0;
     }
 
     ~SequentialTable() {
-        delete [] elements;
+        if (elements != nullptr) {
+            delete [] elements;
+        }
         cout << "Destory successfully!" << endl;
     }
 
@@ -49,7 +51,9 @@ public:
             for (int i = 0; i < this->size; i++) {
                 new_elements[i] = this->elements[i];
             }
-            delete [] elements;
+            if (elements != nullptr) {
+                delete [] elements;
+            }
             this->elements = new_elements;
             this->capacity = new_capacity;
         }
@@ -108,7 +112,6 @@ public:
         return this->capacity;
     }
 };
-
 
 inline void test_sequential_table() {
     cout << "the sequential table testing is starting..." << endl;
