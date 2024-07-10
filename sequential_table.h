@@ -11,7 +11,7 @@ template<typename T>
 
 class SequentialTable {
 private:
-    T *elements;
+    T *elements = nullptr;
     int size{};
     int capacity{};
 
