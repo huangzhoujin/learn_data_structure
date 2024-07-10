@@ -3,4 +3,6 @@ project(learn_data_structure)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(learn_data_structure main.cpp)
+add_executable(learn_data_structure main.cpp
+        sequential_table.h
+)
